@@ -40,7 +40,8 @@ static NSDictionary * errorToDic(NSError * error)
         };
     } else {
         activityController.completionHandler = ^(NSString *activityType, BOOL completed) {
-            // When completed flag is YES, user performed specific activity
+            CDVPluginResult * result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsArray:@[activityType?:@"", [NSNumber numberWithBool:completed]]];
+            [self.commandDelegate sendPluginResult:result callbackId:callbackId];
         };
     }
     
