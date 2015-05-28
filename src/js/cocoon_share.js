@@ -52,9 +52,9 @@
     * any system specific social sharing options. For example, Twitter, Facebook, SMS, Mail, ...
     * @memberOf Cocoon.Share
     * @function share
-    * @param text {string} text The text content that will be shared.
-    * @param image {string} image The image that will be shared. It can be a URL or a base64 image.
-    * @param callback {function} callback. The callback params called when share completed or dimissed. Params: activity, completed, error
+    * @param text {string} The text content that will be shared.
+    * @param image {string} The image that will be shared. It can be a URL or a base64 image.
+    * @param callback {function} The callback params called when share completed or dimissed. Params: activity, completed, error
     * @example
     * Cocoon.Share.share("I have scored more points on Flappy Submarine!! Chooo choooo");
     */
