@@ -156,7 +156,7 @@
         <dl>
             
 <dt>
-    <h4 class="name" id="share"><span class="type-signature">&lt;static> </span>share<span class="signature">(text, image, callback)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="share"><span class="type-signature">&lt;static> </span>share<span class="signature">(callback)</span><span class="type-signature"></span></h4>
     
     
 </dt>
@@ -164,7 +164,7 @@
     
     
     <div class="description">
-        <p>Opens a given share native window to share some specific text content in 
+        <p>Opens a given share native window to share some specific text content in
 any system specific social sharing options. For example, Twitter, Facebook, SMS, Mail, ...</p>
     </div>
     
@@ -199,52 +199,6 @@ any system specific social sharing options. For example, Twitter, Facebook, SMS,
 
         <tr>
             
-                <td class="name"><code>text</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>text The text content that will be shared.</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>image</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>image The image that will be shared. It can be a URL or a base64 image.</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
                 <td class="name"><code>callback</code></td>
             
 
@@ -272,6 +226,129 @@ any system specific social sharing options. For example, Twitter, Facebook, SMS,
     
     
 <dl class="details">
+    
+
+        <h5 class="subsection-title">Properties:</h5>
+
+        <dl>
+
+<table class="props table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The data to share</p>
+                <h6>Properties</h6>
+
+<table class="props table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>message</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The message that will be shared.</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>image</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The image that will be shared. It can be a URL or a base64 image.</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+            </td>
+        </tr>
+
+	
+	</tbody>
+</table>
+</dl>
+
     
 
     
@@ -311,7 +388,12 @@ any system specific social sharing options. For example, Twitter, Facebook, SMS,
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">Cocoon.Share.share("I have scored more points on Flappy Submarine!! Chooo choooo");</pre>
+    <pre class="sunlight-highlight-javascript">Cocoon.Share.share({
+                message: "I have scored more points on Flappy Submarine!! Chooo choooo",
+                image: "http://www.myserver.com/myimage.png"
+            }, function(activity, completed, error){
+                    console.log("Share " + completed ? 'Ok' : 'Failed');
+            });</pre>
 
 
     

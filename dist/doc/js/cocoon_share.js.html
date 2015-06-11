@@ -86,7 +86,7 @@
 					
 
 
-		<h1 class="page-title">Source: /Users/LibelulaV/Documents/ludei/atomic-plugins-share/src/js/cocoon_share.js</h1>
+		<h1 class="page-title">Source: /Users/mortimer/Projects/atomic-plugins-share/src/js/cocoon_share.js</h1>
     
     <section>
         <article>
@@ -139,23 +139,29 @@
      * @namespace Cocoon.Share
      */
     Cocoon.define("Cocoon.Share", function(extension) {
-    /**
-    * Opens a given share native window to share some specific text content in 
-    * any system specific social sharing options. For example, Twitter, Facebook, SMS, Mail, ...
-    * @memberOf Cocoon.Share
-    * @function share
-    * @param text {string} text The text content that will be shared.
-    * @param image {string} image The image that will be shared. It can be a URL or a base64 image.
-    * @param callback {function} callback. The callback params called when share completed or dimissed. Params: activity, completed, error
-    * @example
-    * Cocoon.Share.share("I have scored more points on Flappy Submarine!! Chooo choooo");
-    */
-        extension.share = function(text, image, callback) {
-            callback = callback || function(){};
-            Cocoon.exec('LDSharePlugin', 'share', [text, image], function(data){
-                callback(data[0], data[1], data[2]);
+        /**
+         * Opens a given share native window to share some specific text content in
+         * any system specific social sharing options. For example, Twitter, Facebook, SMS, Mail, ...
+         * @memberOf Cocoon.Share
+         * @function share
+         * @property {object}  data               - The data to share
+         * @property {string}  data.message       - The message that will be shared.
+         * @property {string}  data.image         - The image that will be shared. It can be a URL or a base64 image.
+         * @param callback {function} callback. The callback params called when share completed or dimissed. Params: activity, completed, error
+         * @example
+         * Cocoon.Share.share({
+                message: "I have scored more points on Flappy Submarine!! Chooo choooo",
+                image: "http://www.myserver.com/myimage.png"
+            }, function(activity, completed, error){
+                    console.log("Share " + completed ? 'Ok' : 'Failed');
+            });
+         */
+        extension.share = function(data, callback) {
+            callback = callback || function() {};
+            Cocoon.exec('LDSharePlugin', 'share', [data], function(result) {
+                callback(result[0], result[1], result[2]);
             }, function(data) {
-                callback(data[0], data[1], data[2]);
+                callback(result[0], result[1], result[2]);
             });
         };
 
