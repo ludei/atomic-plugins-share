@@ -88,8 +88,9 @@ static NSDictionary * errorToDic(NSError * error)
 
 -(void) jobInBackground:(CDVInvokedUrlCommand*) command
 {
-    NSString * text = [command argumentAtIndex:0 withDefault:@"" andClass:[NSString class]];
-    NSString * imageName = [command argumentAtIndex:1 withDefault:nil andClass:[NSString class]];
+    NSDictionary * dic = [command argumentAtIndex:0 withDefault:@{} andClass:[NSDictionary class]];
+    NSString * text = [dic objectForKey:@"message"];
+    NSString * imageName = [dic objectForKey:@"image"];
     UIImage * image = [self getImage:imageName];
     dispatch_async(dispatch_get_main_queue(), ^{
         [self share:text image:image callbackId:command.callbackId];
