@@ -41,9 +41,12 @@ The following JavaScript file is included automatically:
 ###Example
 
 ```javascript
-	Cocoon.Share.share('Mortimer test', url, function(activity, completed, error){
-		alert(JSON.stringify(arguments));
-	});
+	Cocoon.Share.share({
+            message: "I have scored more points on Flappy Submarine!! Chooo choooo",
+            image: "http://www.myserver.com/myimage.png"
+        }, function(activity, completed, error){
+            console.log("Share " + completed ? 'Ok' : 'Failed');
+        });
 ```
 
 #License
