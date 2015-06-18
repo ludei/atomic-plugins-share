@@ -12,7 +12,7 @@ Atomic Plugins provide an elegant and minimalist API and are designed with porta
 
 #Provided APIs
 
-* [JavaScript API](#javascript-api)
+  * [JavaScript API](#javascript-api)
   * [API Reference](#api-reference)
   * [Introduction](#introduction)
   * [Setup your project](#setup-your-project)
@@ -22,7 +22,7 @@ Atomic Plugins provide an elegant and minimalist API and are designed with porta
 
 ###API Reference
 
-See [API Documentation](http://ludei.github.io/atomic-plugins-share/dist/doc/js/Cocoon.Share.html)
+See [API Documentation](http://ludei.github.io/cocoon-common/dist/doc/js/Cocoon.Share.html)
 
 ###Introduction 
 
