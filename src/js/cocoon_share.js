@@ -68,7 +68,7 @@
             callback = callback || function() {};
             Cocoon.exec('LDSharePlugin', 'share', [data], function(result) {
                 callback(result[0], result[1], result[2]);
-            }, function(data) {
+            }, function(result) {
                 callback(result[0], result[1], result[2]);
             });
         };
