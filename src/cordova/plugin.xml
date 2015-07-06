@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        id="com.ludei.share" version="1.0.5">
+        id="com.ludei.share" version="1.0.6">
     <name>CocoonShareAtomicPlugin</name>
     <description>Cocoon Share API</description>
     <license>MPL 2.0</license>
     <keywords>cordova,social,twitter,facebook,share,atomic,plugins</keywords>
+    <repo>https://github.com/ludei/atomic-plugins-share</repo>
     <platform name="ios">
         <header-file src="src/ios/LDSharePlugin.h" />
         <source-file src="src/ios/LDSharePlugin.m" />
