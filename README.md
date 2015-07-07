@@ -1,4 +1,5 @@
-#Atomic Plugins Share
+Atomic Plugins Share
+======================
 
 This repo contains Share APIs designed using the [Atomic Plugins](#about-atomic-plugins) paradigm. The API is available in JavaScript and we plan to add more languagues in the future:
  
@@ -32,7 +33,7 @@ Cocoon.Share class provides an easy to use API that can be used with different O
 
 Releases are deployed to Cordova Plugin Registry. You only have to install the desired plugins using Cordova CLI, CocoonJS CLI or Ludei's Cocoon.io Cloud Server.
 
-    cordova plugin add com.ludei.share;
+    cordova plugin add cocoon-plugin-share;
 
 The following JavaScript file is included automatically:
 

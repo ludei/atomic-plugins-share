@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        id="com.ludei.share" version="1.0.6">
+        id="cocoon-plugin-share" version="1.0.0">
     <name>CocoonShareAtomicPlugin</name>
     <description>Cocoon Share API</description>
     <license>MPL 2.0</license>
@@ -34,5 +34,5 @@
         <runs/>
     </js-module>
 
-    <dependency id="com.ludei.cocoon.common" />
+    <dependency id="cocoon-plugin-common" />
 </plugin>
