@@ -1,6 +1,6 @@
 {
   "name": "cocoon-plugin-share",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Cocoon Share API",
   "cordova": {
     "id": "cocoon-plugin-share",
