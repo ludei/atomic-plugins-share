@@ -57,7 +57,11 @@ public class SharePlugin extends CordovaPlugin {
             return true;
         }
         else {
-            callbackContext.error("SharePlugin: " + action + " action not found");
+            JSONArray array = new JSONArray();
+            array.put(""); //activity name
+            array.put(false); //completed
+            array.put("SharePlugin: " + action + " action not found");
+            callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.ERROR, array));
             return false;
         }
     }
@@ -68,8 +72,9 @@ public class SharePlugin extends CordovaPlugin {
         if (_pendingCallback != null && requestCode == SHARE_REQUEST_CODE) {
             JSONArray array = new JSONArray();
             array.put(""); //activity name
-            array.put(resultCode == Activity.RESULT_OK);
-            _pendingCallback.sendPluginResult(new PluginResult(PluginResult.Status.OK, resultCode == Activity.RESULT_OK));
+            array.put(true); //completed
+            array.put(null);
+            _pendingCallback.sendPluginResult(new PluginResult(PluginResult.Status.OK, array));
             _pendingCallback = null;
         }
     }
@@ -103,7 +108,12 @@ public class SharePlugin extends CordovaPlugin {
                     }
                 }
             } catch (Exception e) {
-                callbackContext.error(e.getMessage());
+                JSONArray array = new JSONArray();
+                array.put(""); //activity name
+                array.put(false); //completed
+                array.put(e.getMessage());
+                callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.ERROR, array));
+                return;
             }
         } else {
             intent.setType("text/plain");
