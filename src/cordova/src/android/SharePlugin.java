@@ -1,17 +1,22 @@
 package com.ludei.share.cordova;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.util.Base64;
 
-import org.apache.cordova.*;
-import org.apache.http.util.ByteArrayBuffer;
+import org.apache.cordova.CallbackContext;
+import org.apache.cordova.CordovaPlugin;
+import org.apache.cordova.PluginResult;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.*;
+import java.io.BufferedInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
@@ -231,12 +236,14 @@ public class SharePlugin extends CordovaPlugin {
 
     private byte[] getBytes(InputStream is) throws IOException {
         BufferedInputStream bis = new BufferedInputStream(is);
-        ByteArrayBuffer baf = new ByteArrayBuffer(5000);
-        int current;
-        while ((current = bis.read()) != -1) {
-            baf.append((byte) current);
+        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+        byte[] data = new byte[5000];
+        int current = 0;
+        while((current = bis.read(data,0,data.length)) != -1){
+            buffer.write(data, 0, current);
         }
-        return baf.toByteArray();
+
+        return buffer.toByteArray();
     }
 
     private void saveFile(byte[] bytes, String dirName, String fileName) throws IOException {
